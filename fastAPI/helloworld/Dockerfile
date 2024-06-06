@@ -1,8 +1,8 @@
-FROM ubuntu:22.04
 FROM python:3.12
 RUN pip install poetry
+LABEL MAINTAINER="aijaz.ahmed.bz@gmail.com"
 WORKDIR /code
-ADD ./pyproject.toml ./helloworld /code/
-ADD ./helloworld /code/helloworld/
+COPY ./pyproject.toml ./helloworld /code/
+COPY ./helloworld /code/helloworld/
 RUN poetry install
-CMD [ "poetry", "run", "uvicorn", "helloworld.main:app", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "poetry", "run", "uvicorn", "helloworld.main:app", "--host", "0.0.0.0" ]
