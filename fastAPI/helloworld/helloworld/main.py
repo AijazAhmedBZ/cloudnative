@@ -4,4 +4,8 @@ app=FastAPI()
 
 @app.get("/")
 def main():
-    return {"Class":"Monday"}
+    return {"Class":"Thursday"}
+
+@app.get("/location")
+def main():
+    return {"City":"Karachi"}
